@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProEventos.Persistence.Contextos;
 
 namespace ProEventos.Persistence.Migrations
 {
     [DbContext(typeof(ProEventosContext))]
-    partial class ProEventosContextModelSnapshot : ModelSnapshot
+    [Migration("20210311192405_segunda")]
+    partial class segunda
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,30 +54,10 @@ namespace ProEventos.Persistence.Migrations
                         {
                             Id = 1,
                             Email = "teste@123.com.br",
-                            ImagemURL = "foto.png",
+                            ImagemURL = "www.",
                             Local = "Evento WEG3",
                             QtdPessoas = 1000,
                             Telefone = "99999",
-                            Tema = "Ações"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Email = "teste@123.com.br",
-                            ImagemURL = "foto2.png",
-                            Local = "Evento CSNA3",
-                            QtdPessoas = 1000,
-                            Telefone = "33333",
-                            Tema = "Ações"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Email = "teste@123.com.br",
-                            ImagemURL = "foto3.png",
-                            Local = "Evento VALE3",
-                            QtdPessoas = 1000,
-                            Telefone = "22222",
                             Tema = "Ações"
                         });
                 });
@@ -116,22 +98,6 @@ namespace ProEventos.Persistence.Migrations
                             Id = 1,
                             EventoId = 1,
                             Nome = "LOTE WEG3",
-                            Preco = 73.39m,
-                            Quantidade = 100
-                        },
-                        new
-                        {
-                            Id = 2,
-                            EventoId = 2,
-                            Nome = "LOTE 2",
-                            Preco = 73.39m,
-                            Quantidade = 100
-                        },
-                        new
-                        {
-                            Id = 3,
-                            EventoId = 3,
-                            Nome = "LOTE 3",
                             Preco = 73.39m,
                             Quantidade = 100
                         });

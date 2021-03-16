@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProEventos.Persistence.Contextos;
 
 namespace ProEventos.Persistence.Migrations
 {
     [DbContext(typeof(ProEventosContext))]
-    partial class ProEventosContextModelSnapshot : ModelSnapshot
+    [Migration("20210311201139_terceira")]
+    partial class terceira
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -116,22 +118,6 @@ namespace ProEventos.Persistence.Migrations
                             Id = 1,
                             EventoId = 1,
                             Nome = "LOTE WEG3",
-                            Preco = 73.39m,
-                            Quantidade = 100
-                        },
-                        new
-                        {
-                            Id = 2,
-                            EventoId = 2,
-                            Nome = "LOTE 2",
-                            Preco = 73.39m,
-                            Quantidade = 100
-                        },
-                        new
-                        {
-                            Id = 3,
-                            EventoId = 3,
-                            Nome = "LOTE 3",
                             Preco = 73.39m,
                             Quantidade = 100
                         });

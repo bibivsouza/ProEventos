@@ -5,6 +5,22 @@ namespace ProEventos.Domain
 {
     public class Evento
     {
+
+        public Evento()
+        {
+
+        }
+        public Evento(int id, string local, string tema, int qtdPessoas, string imagemURL, string telefone, string email)
+        {
+            this.Id = id;
+            this.Local = local;
+            this.Tema = tema;
+            this.QtdPessoas = qtdPessoas;
+            this.ImagemURL = imagemURL;
+            this.Telefone = telefone;
+            this.Email = email;
+
+        }
         public int Id { get; set; }
         public string Local { get; set; }
         public DateTime? DataEvento { get; set; }

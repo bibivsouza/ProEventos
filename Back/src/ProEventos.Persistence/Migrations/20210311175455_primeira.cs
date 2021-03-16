@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProEventos.Persistence.Migrations
 {
-    public partial class Initial : Migration
+    public partial class primeira : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -110,14 +110,34 @@ namespace ProEventos.Persistence.Migrations
                         column: x => x.EventoId,
                         principalTable: "Eventos",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_RedesSociais_Palestrantes_PalestranteId",
                         column: x => x.PalestranteId,
                         principalTable: "Palestrantes",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Palestrantes",
+                columns: new[] { "Id", "Email", "ImagemURL", "MiniCurriculo", "Nome", "Telefone" },
+                values: new object[] { 1, "lauro@hotmail.com", "www.localhost.com", "minicurriculoUrl", "Lauro", "33231316" });
+
+            migrationBuilder.InsertData(
+                table: "Palestrantes",
+                columns: new[] { "Id", "Email", "ImagemURL", "MiniCurriculo", "Nome", "Telefone" },
+                values: new object[] { 2, "lauro@hotmail.com", "www.localhost.com", "minicurriculoUrl", "Ana", "33231316" });
+
+            migrationBuilder.InsertData(
+                table: "Palestrantes",
+                columns: new[] { "Id", "Email", "ImagemURL", "MiniCurriculo", "Nome", "Telefone" },
+                values: new object[] { 3, "lauro@hotmail.com", "www.localhost.com", "minicurriculoUrl", "Maria", "33231316" });
+
+            migrationBuilder.InsertData(
+                table: "Palestrantes",
+                columns: new[] { "Id", "Email", "ImagemURL", "MiniCurriculo", "Nome", "Telefone" },
+                values: new object[] { 4, "lauro@hotmail.com", "www.localhost.com", "minicurriculoUrl", "Bianca", "33231316" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Lotes_EventoId",

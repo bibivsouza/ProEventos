@@ -4,14 +4,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ProEventos.Persistence;
 using ProEventos.Persistence.Contextos;
 
 namespace ProEventos.Persistence.Migrations
 {
     [DbContext(typeof(ProEventosContext))]
-    [Migration("20210215222944_Initial")]
-    partial class Initial
+    [Migration("20210311175455_primeira")]
+    partial class primeira
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -106,6 +105,44 @@ namespace ProEventos.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Palestrantes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "lauro@hotmail.com",
+                            ImagemURL = "www.localhost.com",
+                            MiniCurriculo = "minicurriculoUrl",
+                            Nome = "Lauro",
+                            Telefone = "33231316"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Email = "lauro@hotmail.com",
+                            ImagemURL = "www.localhost.com",
+                            MiniCurriculo = "minicurriculoUrl",
+                            Nome = "Ana",
+                            Telefone = "33231316"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Email = "lauro@hotmail.com",
+                            ImagemURL = "www.localhost.com",
+                            MiniCurriculo = "minicurriculoUrl",
+                            Nome = "Maria",
+                            Telefone = "33231316"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Email = "lauro@hotmail.com",
+                            ImagemURL = "www.localhost.com",
+                            MiniCurriculo = "minicurriculoUrl",
+                            Nome = "Bianca",
+                            Telefone = "33231316"
+                        });
                 });
 
             modelBuilder.Entity("ProEventos.Domain.PalestranteEvento", b =>
@@ -184,11 +221,13 @@ namespace ProEventos.Persistence.Migrations
                 {
                     b.HasOne("ProEventos.Domain.Evento", "Evento")
                         .WithMany("RedesSociais")
-                        .HasForeignKey("EventoId");
+                        .HasForeignKey("EventoId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ProEventos.Domain.Palestrante", "Palestrante")
                         .WithMany("RedesSociais")
-                        .HasForeignKey("PalestranteId");
+                        .HasForeignKey("PalestranteId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Evento");
 

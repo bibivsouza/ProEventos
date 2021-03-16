@@ -2,6 +2,14 @@ namespace ProEventos.Domain
 {
     public class RedeSocial
     {
+        public RedeSocial(int id, string nome, string uRL)
+        {
+            this.Id = id;
+            this.Nome = nome;
+            this.URL = uRL;
+
+
+        }
         public int Id { get; set; }
         public string Nome { get; set; }
         public string URL { get; set; }
